@@ -3,7 +3,6 @@ source: https://symfonycasts.com/screencast/symfony4
 
 ## Setup
 ### Setting Up the Project:
-(Chapter 1 / 2)
 
 * **Create project**
     * `~$ composer create-project symfony/skeleton the_spacebar4.4`
@@ -58,7 +57,26 @@ source: https://symfonycasts.com/screencast/symfony4
     * http requests
     * host names
 
-## Flex & Recipes
+## Flex & Recipes / Aliases
+* Symfony **Flex** (https://flex.symfony.com/)
+    * **Alias** system
+
+
+####Example: security-checker
+https://packagist.org/packages/sensiolabs/security-checker
+
+`~$ composer require sec-checker --dev` ...Install security checker (--dev because only used while developing)
+
+
+`~$ ./bin/console security:check` ...using recipe in CLI
+
+`~$ git diff composer.json`  ... check what composer added (see scripts)
+
+`~$ composer install`        ... "composer install" now always checks security!
+ 
+( alternative - doesn't need PHP: `~$ symfony security:check` )
+
+
 
 ## Components
 #### /bin/console
