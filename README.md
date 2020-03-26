@@ -39,6 +39,7 @@ source: https://symfonycasts.com/screencast/symfony4
 ## Routes & Controller
 * **Route** ...configuration that defines the URL for a page.
 * **Controller** ... a function that we write that actually builds the content for that page.
+    * MUST return symfony **Response Object** (can be anything)
 
 * Version 1:
     * /config/*routes.yaml*  ... `App\Controller\ArticleController::homepage`
@@ -77,6 +78,8 @@ https://packagist.org/packages/sensiolabs/security-checker
 ( alternative - doesn't need PHP: `~$ symfony security:check` )
 
 
+## Twig Recipe
+Tool to return **html-response** in controller function
 
 ## Components
 #### /bin/console
