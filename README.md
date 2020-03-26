@@ -1,12 +1,37 @@
 # Symfony 4 - Project
-source: https://symfonycasts.com/screencast/symfony4
+Tutorial source: https://symfonycasts.com/screencast/symfony4
+
+Best practice: https://symfony.com/doc/current/best_practices.html
+
+## Symfony 4 - Structure
+
++ `bin/` ...The famous bin/console file lives here 
+
++ `config/` ...Contains configurations to configure routes, services and packages.
+    + `config/bundles.php`  ...plugin system for symfony (flex adds 3rd party plugins there) 
+    + `config/packages/` ...
++ `public/` ...This is the document root for your project: you put any publicly accessible files here.
+
++ `src/` ....All PHP code lives here.
+    + `src/Controller`  ...function that that actually builds content for that page
+
++ `templates/` ...All Twig templates live here (templates organize and render html)
+
++ `var/` ...This is where automatically-created files are stored, 
+      like cache files (var/cache/) and logs (var/log/).
+      
++ `vendor/` ...Third-party (i.e. "vendor") libraries live here! 
+      These are downloaded via the Composer package manager.
+      
+
 
 ## Setup
 ### Setting Up the Project:
 
 * **Create project**
     * `~$ composer create-project symfony/skeleton the_spacebar4.4`
-    * This command clones the symfony/skeleton project and then runs composer install to download its dependencies ("recipes" are a new and very important concept)
+    * This command clones the symfony/skeleton project and then runs composer install to download its 
+    dependencies ("recipes" are a new and very important concept)
 
 
 * **Switch to new project director and start build-in server**
@@ -59,8 +84,18 @@ source: https://symfonycasts.com/screencast/symfony4
     * host names
 
 ## Flex & Recipes / Aliases
+https://symfony.com/doc/current/quick_tour/flex_recipes.html
 * Symfony **Flex** (https://flex.symfony.com/)
-    * **Alias** system
+    * uses **Alias** system
+    * installs recipes
+    
+**Flex** is a tool that makes adding new features as simple as running one command. It's also the reason why 
+Symfony is ideal for a small micro-service or a huge application.
+    
+    
+Flex installs **recipes** (e.g. for symfony/twig-bundle). A **recipe** is a way for a library 
+to automatically configure itself by adding and modifying files. Thanks to recipes, adding features is 
+seamless and automated: install a package and you're done!
 
 
 ####Example: security-checker
@@ -78,8 +113,29 @@ https://packagist.org/packages/sensiolabs/security-checker
 ( alternative - doesn't need PHP: `~$ symfony security:check` )
 
 
-## Twig Recipe
-Tool to return **html-response** in controller function
+## Twig
+
+**Template Engine**:  https://twig.symfony.com/
+
+https://symfony.com/doc/current/quick_tour/flex_recipes.html
+
+https://symfony.com/doc/current/templates.html#rendering-templates
+
++ Tool to return **html-response** in controller function.
++ **Templates** in Symfony are created with Twig: a flexible, fast, and secure template engine.  
+(Templates are the best way to organize and render HTML from inside application)
+
++ Install: `~$ composer require twig`; Files/Folders created by *Flex*:
+    + */config/bundles.php* ...Plugin added by Flex
+    + */templates/*  ...This is the directory where template files will live. The recipe also added a 
+    "*base.html.twig*" layout file.
+    + */config/packages/twig.yaml* ...Configuration file that sets up Twig with sensible defaults.
+
++ Twig-Syntax:
+    + {{ }}  ...print something: (either variable, string or complexer expression)
+    + {% %} ...do something: e.g. statements (if, while, for ...)
+    + {# #} ... comments
+
 
 ## Components
 #### /bin/console
