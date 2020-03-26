@@ -3,11 +3,13 @@
 
 namespace App\Controller;
 
-# setup by phpstrom might be wrong!!!
+# setup by PhpStorm might be wrong!!!
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ArticleController
+
+class ArticleController extends AbstractController
 {
 
 
@@ -26,9 +28,26 @@ class ArticleController
      */
     public function show($slug)
     {
-        return new Response(sprintf(
+        /* old version
+        new Response(sprintf(
             'Future page to show the article: %s',
                             $slug)
+        ); */
+
+        $comments = array(
+            'Blabla, test comment for twig example',
+            'What\'s going to happen ?',
+            'Last one of three comments',
+        );
+
+        /*
+         * second arg is array of variables to pass into template! (e.g. articles from db)
+         * test: http://127.0.0.1:8000/news/Wtf-is-happening-here
+         */
+        return $this->render('article/show.html.twig', array(
+            'title' => ucwords(str_replace('-', ' ', $slug)),
+            'comments' => $comments,
+        )
         );
     }
 }
