@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Read: {{ title }} {% endblock %}
+
+{% block body %}
+
+<h1>{{ title }}</h1>
+
+<div>
+    <p>
+        first line of stuff
+    </p>
+    <p>
+        second line
+    </p>
+    <p>
+        Pastrami short loin pork chop, chicken kielbasa swine turducken jerky short ribs beef. Short ribs alcatra shoulder, flank pork chop shankle t-bone. Tail rump pork chop boudin pig, chicken porchetta. Shank doner biltong, capicola brisket sausage meatloaf beef ribs kevin beef rump ribeye t-bone. Shoulder cupim meatloaf, beef kevin frankfurter picanha bacon. Frankfurter bresaola chuck kevin buffalo strip steak pork loin beef ribs prosciutto picanha shankle. Drumstick prosciutto pancetta beef ribs.
+    </p>
+</div>
+
+<h2>Comments ({{ comments|length  }}) </h2>
+
+<ul>
+    {% for comment in comments %}
+        <li>{{ comment }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
