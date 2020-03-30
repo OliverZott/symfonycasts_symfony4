@@ -3,7 +3,12 @@ Tutorial source: https://symfonycasts.com/screencast/symfony4
 
 Best practice: https://symfony.com/doc/current/best_practices.html
 
-## Symfony 4 - Structure
+# Table of Contents
+1. [Introduction](#introduction)
+
+
+
+## Symfony 4 - Structure 
 
 + `bin/` ...The famous bin/console file lives here 
 
@@ -26,13 +31,17 @@ Best practice: https://symfony.com/doc/current/best_practices.html
 ## Symfony 4 - Tools
 Each tool brings various **packages** and **recipes**! Installed with **Flex** (see below).
 
-`composer require  `
+Install: `composer require  ` ...
 
 * `web-server-bundle`
 * `annotations` 
 * `sec-checker` 
 * `twig` 
 * `profiler` 
+* `debug`
+
+Check CLI commands:
+* `~$ php bin/console`
 
 ## Setup
 ### Setting Up the Project:
@@ -106,6 +115,7 @@ https://symfony.com/doc/current/quick_tour/flex_recipes.html
 **Flex** is a tool that makes adding new features as simple as running one command. It's also the reason why 
 Symfony is ideal for a small micro-service or a huge application.
     
+**Recipes** are executed by Flex to install and configure files automatically! (e.g. config/packages/...)    
     
 Flex installs **recipes** (e.g. for symfony/twig-bundle). A **recipe** is a way for a library 
 to automatically configure itself by adding and modifying files. Thanks to recipes, adding features is 
@@ -153,17 +163,54 @@ https://symfony.com/doc/current/templates.html#rendering-templates
 Template-Engine vs. Web-Framework: 
 https://stackoverflow.com/questions/3139924/what-are-the-differences-between-framework-and-template-engine
 
-## Profiler
-
+## Profiler-Pack
 + Install: `~$ composer require profiler`;
 
 Functionality:
 + `dump()` 
     + in .php: `dump($slug, $this);` 
-    + in .twig: `dump()`  ...prints all accessible variables 
+    + in .twig: `{{ dump() }}`  ...prints all accessible variables 
 
+## Debug-Pack 
+https://github.com/symfony/debug-pack/blob/master/composer.json
++ Install: `~$ composer require debug`;
++ Components:
+    + monolog ...logging lib
+    + phpunit-bridge ...unit testing lib
+    + profiler (see above)
+    
 ## Packs
+**Packs** ... packages that install other libraries at once. 
+See packages above (especially respective **composer.json** files)
 
+**Disadvantage** of packs: No version control over single libs / packages contained by the pack.
+
+Use `unpack` to replace pack by its components:
+
++ e.g.: `~$ composer unpack debug` 
+
+before: 
+
+```
+"require-dev": {
+    "symfony/debug-pack": "^1.0",
+    "symfony/profiler-pack": "^1.0",
+    "symfony/web-server-bundle": "4.4"
+```
+
+after:
+
+```
+"require-dev": {
+    "easycorp/easy-log-handler": "^1.0.7",
+    "symfony/debug-bundle": "*",
+    "symfony/monolog-bundle": "^3.0",
+    "symfony/profiler-pack": "*",
+    "symfony/var-dumper": "*",
+    "symfony/web-server-bundle": "4.4"
+```
+
+## This is the introduction <a name="introduction"></a>
 
 ## Components
 #### /bin/console
