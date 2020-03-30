@@ -4,11 +4,20 @@ Tutorial source: https://symfonycasts.com/screencast/symfony4
 Best practice: https://symfony.com/doc/current/best_practices.html
 
 # Table of Contents
-1. [Introduction](#introduction)
+1. [Structure](#structure)
+2. [Tools](#tools)
+3. [Setup](#setup)
+4. [Routes & Controller](#route)
+5. [Flex & Recipes / Aliases](#flex)
+    6. [Security-Checker](#sec)
+7. [Twig](#twig)
+5. [Profiler-Pack](#profiler)
+5. [Debug-Packs](#debug)
+5. [Packs](#packs)
 
 
 
-## Symfony 4 - Structure 
+## Symfony 4 - Structure <a name="structure"></a>
 
 + `bin/` ...The famous bin/console file lives here 
 
@@ -28,7 +37,7 @@ Best practice: https://symfony.com/doc/current/best_practices.html
 + `vendor/` ...Third-party (i.e. "vendor") libraries live here! 
       These are downloaded via the Composer package manager.
       
-## Symfony 4 - Tools
+## Symfony - Tools <a name="tools"></a>
 Each tool brings various **packages** and **recipes**! Installed with **Flex** (see below).
 
 Install: `composer require  ` ...
@@ -43,7 +52,7 @@ Install: `composer require  ` ...
 Check CLI commands:
 * `~$ php bin/console`
 
-## Setup
+## Setup <a name="setup"></a>
 ### Setting Up the Project:
 
 * **Create project**
@@ -84,7 +93,7 @@ Check CLI commands:
 
 
 
-## Routes & Controller
+## Routes & Controller <a name="route"></a>
 * **Route** ...configuration that defines the URL for a page.
 * **Controller** ... a function that we write that actually builds the content for that page.
     * MUST return symfony **Response Object** (can be anything)
@@ -106,7 +115,7 @@ Check CLI commands:
     * http requests
     * host names
 
-## Flex & Recipes / Aliases
+## Flex & Recipes / Aliases <a name="flex"></a>
 https://symfony.com/doc/current/quick_tour/flex_recipes.html
 * Symfony **Flex** (https://flex.symfony.com/)
     * uses **Alias** system
@@ -122,7 +131,7 @@ to automatically configure itself by adding and modifying files. Thanks to recip
 seamless and automated: install a package and you're done!
 
 
-####Example: security-checker
+####Example: security-checker <a name="sec"></a>
 https://packagist.org/packages/sensiolabs/security-checker
 
 `~$ composer require sec-checker --dev` ...Install security checker (--dev because only used while developing)
@@ -137,7 +146,7 @@ https://packagist.org/packages/sensiolabs/security-checker
 ( alternative - doesn't need PHP: `~$ symfony security:check` )
 
 
-## Twig
+## Twig <a name="twig"></a>
 
 **Template Engine**:  https://twig.symfony.com/
 
@@ -163,7 +172,7 @@ https://symfony.com/doc/current/templates.html#rendering-templates
 Template-Engine vs. Web-Framework: 
 https://stackoverflow.com/questions/3139924/what-are-the-differences-between-framework-and-template-engine
 
-## Profiler-Pack
+## Profiler-Pack <a name="profiler"></a>
 + Install: `~$ composer require profiler`;
 
 Functionality:
@@ -171,7 +180,7 @@ Functionality:
     + in .php: `dump($slug, $this);` 
     + in .twig: `{{ dump() }}`  ...prints all accessible variables 
 
-## Debug-Pack 
+## Debug-Pack  <a name="debug"></a>
 https://github.com/symfony/debug-pack/blob/master/composer.json
 + Install: `~$ composer require debug`;
 + Components:
@@ -179,7 +188,7 @@ https://github.com/symfony/debug-pack/blob/master/composer.json
     + phpunit-bridge ...unit testing lib
     + profiler (see above)
     
-## Packs
+## Packs <a name="packs"></a>
 **Packs** ... packages that install other libraries at once. 
 See packages above (especially respective **composer.json** files)
 
@@ -210,7 +219,6 @@ after:
     "symfony/web-server-bundle": "4.4"
 ```
 
-## This is the introduction <a name="introduction"></a>
 
 ## Components
 #### /bin/console
