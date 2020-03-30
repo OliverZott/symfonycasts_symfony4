@@ -132,7 +132,7 @@ to automatically configure itself by adding and modifying files. Thanks to recip
 seamless and automated: install a package and you're done!
 
 
-####Example: security-checker <a name="sec"></a>
+#### Example: security-checker <a name="sec"></a>
 https://packagist.org/packages/sensiolabs/security-checker
 
 `~$ composer require sec-checker --dev` ...Install security checker (--dev because only used while developing)
