@@ -3,13 +3,14 @@ Tutorial source: https://symfonycasts.com/screencast/symfony4
 
 Best practice: https://symfony.com/doc/current/best_practices.html
 
-# Table of Contents
+## Table of Contents
 1. [Structure](#structure)
 2. [Tools](#tools)
 3. [Setup](#setup)
 4. [Routes & Controller](#route)
 5. [Flex & Recipes / Aliases](#flex)
     6. [Security-Checker](#sec)
+    
 7. [Twig](#twig)
 5. [Profiler-Pack](#profiler)
 5. [Debug-Packs](#debug)
