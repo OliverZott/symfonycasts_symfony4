@@ -23,7 +23,16 @@ Best practice: https://symfony.com/doc/current/best_practices.html
 + `vendor/` ...Third-party (i.e. "vendor") libraries live here! 
       These are downloaded via the Composer package manager.
       
+## Symfony 4 - Tools
+Each tool brings various **packages** and **recipes**! Installed with **Flex** (see below).
 
+`composer require  `
+
+* `web-server-bundle`
+* `annotations` 
+* `sec-checker` 
+* `twig` 
+* `profiler` 
 
 ## Setup
 ### Setting Up the Project:
@@ -38,7 +47,7 @@ Best practice: https://symfony.com/doc/current/best_practices.html
     * `~$ cd the_spacebar4.4`
     * `~$ symfony server:start`
 
-* **Initialize Git-repository** (in project folder)
+* **Git: Initialize repository** (in project folder)
     * `~$ git init `
     * (if using phpstorm, ignore .idea): https://help.github.com/en/github/using-git/ignoring-files
     * `git remote add origin https://github.com/.../symfonycasts_symfony4.git`
@@ -49,6 +58,11 @@ Best practice: https://symfony.com/doc/current/best_practices.html
     * `~$ composer require symfony/web-server-bundle 4.4 --dev`    
     (optional "4.4" for symfony version)
     * `~$ ./bin/console server:run` or `~$ symfony server:start`
+    
+* **Git: Check changes after tools are installed** (assure git up-to-date before)  
+    * `~$ git diff --name-only` (e.g.: composer.json)
+    * `~$ git diff composer.json`  
+    
     
 ### Setting Up PhpStorm
 * Install Plugins
@@ -138,6 +152,17 @@ https://symfony.com/doc/current/templates.html#rendering-templates
     
 Template-Engine vs. Web-Framework: 
 https://stackoverflow.com/questions/3139924/what-are-the-differences-between-framework-and-template-engine
+
+## Profiler
+
++ Install: `~$ composer require profiler`;
+
+Functionality:
++ `dump()` 
+    + in .php: `dump($slug, $this);` 
+    + in .twig: `dump()`  ...prints all accessible variables 
+
+## Packs
 
 
 ## Components
