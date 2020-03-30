@@ -21,6 +21,7 @@ class ArticleController extends AbstractController
         return new Response('First Controller Response');
     }
 
+
     /**
      * @Route("/news/{slug}")
      * @param $slug

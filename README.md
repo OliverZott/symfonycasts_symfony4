@@ -135,6 +135,9 @@ https://symfony.com/doc/current/templates.html#rendering-templates
     + {{ }}  ...print something: (either variable, string or complexer expression)
     + {% %} ...do something: e.g. statements (if, while, for ...)
     + {# #} ... comments
+    
+Template-Engine vs. Web-Framework: 
+https://stackoverflow.com/questions/3139924/what-are-the-differences-between-framework-and-template-engine
 
 
 ## Components
