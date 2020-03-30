@@ -9,12 +9,10 @@ Best practice: https://symfony.com/doc/current/best_practices.html
 3. [Setup](#setup)
 4. [Routes & Controller](#route)
 5. [Flex & Recipes / Aliases](#flex)
-    6. [Security-Checker](#sec)
-    
-7. [Twig](#twig)
-5. [Profiler-Pack](#profiler)
-5. [Debug-Packs](#debug)
-5. [Packs](#packs)
+6. [Twig](#twig)
+7. [Profiler-Pack](#profiler)
+8. [Debug-Packs](#debug)
+9. [Packs](#packs)
 
 
 
