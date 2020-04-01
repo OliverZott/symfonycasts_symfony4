@@ -5,6 +5,7 @@ namespace App\Controller;
 
 # setup by PhpStorm might be wrong!!!
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -48,8 +49,35 @@ class ArticleController extends AbstractController
          */
         return $this->render('article/show.html.twig', array(
             'title' => ucwords(str_replace('-', ' ', $slug)),
+            'slug' => $slug,
             'comments' => $comments,
         )
         );
+
+    }
+
+
+    /**
+     * API Endpoint
+     *
+     * @Route("/news/{slug}/heart", name="article_toggle_heart", methods={"POST"})
+     *
+     * - slug - wildcard to refer to respective article
+     */
+    public function toggleArticleHeart($slug)
+    {
+        // TODO - actually heart / unheart article
+
+
+        // subclass of response (calls json_encode automatically!)
+        return new JsonResponse(['hearts' => rand(5, 100)]);
+
+        // Controller shortcut:
+        // return $this->json(['hearts' => rand(5, 100)]);
+
+        // to long:
+        // return new Response(json_encode(['heart' => 5]));
+
+
     }
 }
