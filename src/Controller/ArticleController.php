@@ -4,10 +4,12 @@
 namespace App\Controller;
 
 # setup by PhpStorm might be wrong!!!
+use Psr\Log\LoggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Twig\Environment;
 
 
 class ArticleController extends AbstractController
@@ -16,11 +18,21 @@ class ArticleController extends AbstractController
 
     /**
      * @Route("/")
+     *
+     * without auto-wiring
+     * @param Environment $twgEnvironment
+     * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
-    public function homepage()
+    public function homepage(Environment $twgEnvironment)
     {
-        # return new Response('First Controller Response');
-        return $this->render('article/homepage.html.twig');
+
+        $html = $twgEnvironment->render('article/homepage.html.twig');
+        return new Response($html);
+
+        // return $this->render('article/homepage.html.twig');
     }
 
 
@@ -64,10 +76,11 @@ class ArticleController extends AbstractController
      *
      * - slug - wildcard to refer to respective article
      */
-    public function toggleArticleHeart($slug)
+    public function toggleArticleHeart($slug, LoggerInterface $logger)
     {
         // TODO - actually heart / unheart article
 
+        $logger->info('Article is being hearted');
 
         // subclass of response (calls json_encode automatically!)
         return new JsonResponse(['hearts' => rand(5, 100)]);
