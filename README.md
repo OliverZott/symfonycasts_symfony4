@@ -295,6 +295,18 @@ Endpoint will modify something on server (like article) --> BestPractice: NO Get
 + Router Object --> matches routes & generates URLs
 + twig object --> renders templates
 + logger object --> stores log in var/log/dev.log
+    + `~$ tail -f var/log/dev.log`
 
-### Logging:
-`~$ tail -f var/log/dev.log`
+**Auto-Wiring** ...to use Service-Objects, use correct **Type-Hints**
+
+### Dependency-Inversion-Principle
+https://de.wikipedia.org/wiki/Dependency-Inversion-Prinzip
+
+**!!! IMPORTANT !!!**  ... Use interfaces in type-hints instead of classes to benefit from the dependency inversion principle.
+
+## Upcoming:
++ Configuration
++ Doctrine & Database
++ Forms
++ Security
++ APIs
