@@ -54,6 +54,9 @@ Install: `composer require  ` ...
 Check CLI commands:
 * `~$ php bin/console`
 
+Check debug:
+* `~$ ./bin/console debug:`
+
 ## Setup <a name="setup"></a>
 ### Setting Up the Project:
 
@@ -261,16 +264,37 @@ Show list of all routes in app:
 + **show.html.twig**
     + `{% for comment in comments %}` ... `{% endfor %}`
     
-## APIs: JavaScript & Page-Specific Assets
+## JavaScript & Page-Specific Assets
 + JS which sends AJAX request to API endpoint
 + Endpoint returns current count and updates page
++ JQuery in **base.html.twig**; Hearts in **show.html.twig**
 
-JQuery in **base.html.twig**; Hearts in **show.html.twig**
+**show.html.twig**
+ + `<span class="js-like-article-count">5</span>`
+ 
+**article_show.js**
+    
+## JSON API Endpoint
+https://symfonycasts.com/screencast/symfony4/javascript-api#play
 
-+
+Endpoint will modify something on server (like article) --> BestPractice: NO Get Request (only POST):
++ Check routes: `~$ ./bin/console debug:router`
+
+**ArticleController.php** 
++ new file: `public function toggleArticleHeart($slug)`
++ `@Route("/news/{slug}/heart", name="article_toggle_heart", methods={"POST"})`
+
+**show.html.twig** 
++ `href="{{ path('article_toggle_heart', {slug: slug}) }}"`
     
+**article_show.js**
+
     
-    
-## Components
-#### /bin/console
-`./bin/console`
+## Services
+**Services** ...Objects, that do work. Examples:
++ Router Object --> matches routes & generates URLs
++ twig object --> renders templates
++ logger object --> stores log in var/log/dev.log
+
+### Logging:
+`~$ tail -f var/log/dev.log`
