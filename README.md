@@ -13,6 +13,8 @@ Best practice: https://symfony.com/doc/current/best_practices.html
 7. [Profiler-Pack](#profiler)
 8. [Debug-Packs](#debug)
 9. [Packs](#packs)
+9. [Assets](#assets)
+9. [Generating URLs](#urls)
 
 
 
@@ -47,6 +49,7 @@ Install: `composer require  ` ...
 * `twig` 
 * `profiler` 
 * `debug`
+* `asset`
 
 Check CLI commands:
 * `~$ php bin/console`
@@ -219,6 +222,55 @@ after:
 ```
 
 
+## Assets <a name="assets"></a>
+The Asset component manages URL generation 
+and versioning of web assets such as CSS stylesheets, JavaScript files and image files.
+
+https://symfony.com/doc/current/components/asset.html
+
++ Install: `composer require asset`;
+
++ Templates (`/templates`):
+    + Overwrite **base.html.twig** file with tutorial-version
+    + `~$ rm -rf var/cache/dev/*` ...copied tutorial-file date older then mine -> Symfony recognized that!
+
++ Public (`/public/`: css, fonts, images (formerly `/web/`)
+
++ **webpack-encore** ...Symfony tool!
+
+## Routes: Generating URLs <a name="urls"></a>
+Show list of all routes in app:
+`~$ ./bin/console debug:router`
+
++ Annotation routes automatically named (e.g.: `app_article_homepage`)
++ use `{{ path('app_article_homepage') }}`
+
++ **Controller**
+    + ` @Route("/")`  --> `return $this->render('article/homepage.html.twig');`
+    + `@Route("/news/{slug}", name="article_show")` --> `return $this->render('article/show.html.twig', array(...`
+   
++ **base.html.twig**
+    + `href="{{ asset('css/styles.css') }}`
+    + `href="{{ asset('css/font-awesome.css') }}`
+    + `src="{{ asset('images/astronaut-profile.png') }}`
+    + link to homepage.html.twig: `href="{{ path('app_article_homepage') }}`
+    
++ **homepage.html.twig**
+    + link to show.html.twig: `href="{{ path('article_show', { slug:'why-asteroids-taste-like-bacon'}) }}`
+
++ **show.html.twig**
+    + `{% for comment in comments %}` ... `{% endfor %}`
+    
+## APIs: JavaScript & Page-Specific Assets
++ JS which sends AJAX request to API endpoint
++ Endpoint returns current count and updates page
+
+JQuery in **base.html.twig**; Hearts in **show.html.twig**
+
++
+    
+    
+    
 ## Components
 #### /bin/console
 `./bin/console`
