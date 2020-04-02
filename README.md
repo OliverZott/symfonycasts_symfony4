@@ -304,7 +304,7 @@ https://de.wikipedia.org/wiki/Dependency-Inversion-Prinzip
 
 **!!! IMPORTANT !!!**  ... Use interfaces in type-hints instead of classes to benefit from the dependency inversion principle.
 
-## Upcoming:
+# Upcoming:
 + Configuration
 + Doctrine & Database
 + Forms
